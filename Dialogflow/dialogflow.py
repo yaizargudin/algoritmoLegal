@@ -2,8 +2,7 @@ from flask import Flask, request
 import re
 from unicodedata import normalize
 import evaluacion
-import base64
-import json
+
 
 prioridad_baja = 0.5
 priodad_alta = 1
@@ -14,9 +13,6 @@ umbral = priodad_alta
 preguntas = evaluacion.evaluar
 
 
-def generatePdf():
-    with open("sample.pdf", "rb") as pdf_file:
-        return base64.b64encode(pdf_file.read())
 
 def eliminar_diacriticos(palabra):
     """
@@ -58,21 +54,20 @@ def webhook():
 
                     elif(eliminar_diacriticos(value.lower()) == "no"):
                         indice += preguntas[parameter]["importancia"]
-
-            pdf = generatePdf()
-            data = "application / pdf;base64," + str(pdf)
-            if (indice >= umbral):
-
-                resultSTR = "{'fulfillmentText':'Tu algoritmo no supera esto. Gracias por completar la evaluación de su algoritmo IA de roboadvisors. ¿Necesita alguna cosa más?'," \
-                            "'source':'webhook','messages': {'payload': {"+data+"}}}}"
-                print(resultSTR)
-                return json.loads(resultSTR)
+                        
+                        
+            if(indice >= umbral):
+                print(" Tu algoritmo no supera esto bla bla bla...")
+                return {
+                        "fulfillmentText": 'Tu algoritmo no supera esto. Gracias por completar la evaluación de su algoritmo IA de roboadvisors. ¿Necesita alguna cosa más?',
+                        "source": 'webhook'
+                        }
             else:
                 return {
                     "fulfillmentText": 'Tu algoritmo supera esto bla bla bla...',
-                    "source": 'webhook'
-
+                    "source": 'webhook',
                 }
+
 
 
 
