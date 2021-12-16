@@ -1,0 +1,54 @@
+{
+  "intents": [
+    {
+      "tag": "saludo",
+      "patterns": [
+        "Hola",
+        "Buenas",
+        "Cómo estás",
+        "¿Hay alguien ahí?",
+        "Saludos",
+        "Buenos días",
+        "Buenas tardes"
+      ],
+      "responses": [
+        "Hola :-)",
+        "Hola, Bienvenido a Algoritmo Legal",
+        "Hola, ¿qué puedo hacer por ti?",
+        "Hola, ¿en qué puedo ayudarle?"
+      ]
+    },
+    {
+      "tag": "adios",
+      "patterns": [
+        "Adiós",
+        "Hasta luego",
+        "Chao",
+        "Nos vemos",
+        "Hasta pronto",
+        "Un placer"
+      ],
+      "responses": [
+        "Hasta luego, gracias por la visita",
+        "Que tengas un buen día",
+        "¡Adiós! Vuelve pronto"
+      ]
+    },
+    {
+      "tag": "gracias",
+      "patterns": ["Gracias", "Muchas gracias", "Eso es útil"],
+      "responses": ["¡Feliz de ayudar!", "¡De nada! Es mi trabajo", "Un placer ayudarte"]
+    },
+    {
+      "tag": "ayuda",
+      "patterns": [
+        "Necesito ayuda con mi algoritmo",
+        "¿Cómo puedo tener una IA fiable?"
+      ],
+      "responses": [
+        "Por supuesto, dime ¿cómo es tu programa?",
+        "Vale, empecemos a conocer tu programa"
+      ]
+    }
+  ]
+}
